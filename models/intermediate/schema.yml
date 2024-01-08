@@ -1,0 +1,12 @@
+
+version: 1
+
+models:
+    - name: clean_activitiy_data
+      description: "my first truly clean strava_data"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
