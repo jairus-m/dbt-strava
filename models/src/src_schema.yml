@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: strava 
+    description: source data from strava (raw)
+    project: strava-activity
+    dataset: StravaActivities
+    tables: 
+      - name: raw_activities
+        identifier: raw 
+        description: source data containing all activities and fields
+        columns:
+          - name: id
+            description: unique ID for each strava activitiy
+            tests: 
+              - unique
+              - not_null
+
