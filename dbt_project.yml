@@ -42,3 +42,5 @@ models:
       +materialized: ephemeral
     intermediate:
       +materialized: view
+    fct:
+      +materialized: table

@@ -1,3 +1,5 @@
+{{ config(materialized = 'table') }}
+
 WITH src_activities AS (
   SELECT * 
   FROM {{ ref('src_activities') }}
