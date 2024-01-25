@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: fct_cycling_activities
+    description: clean cycling activities
+  - name: fct_running_activities
+    description: clean running_activities
+  - name: fct_other_activities
+    description: clean activities that are not cycling or running

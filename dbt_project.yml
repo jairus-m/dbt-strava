@@ -40,3 +40,7 @@ models:
     # Applies to all files under models/example/
     src:
       +materialized: ephemeral
+    intermediate:
+      +materialized: view
+    fct:
+      +materialized: table
