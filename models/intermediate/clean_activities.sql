@@ -6,8 +6,8 @@ WITH src_activities AS (
 )
 
 SELECT  
-    FORMAT_TIMESTAMP('%m-%d-%Y',TIMESTAMP(start_date_local)) as date,
-    FORMAT_TIMESTAMP('%H:%M:%S %p',TIMESTAMP(start_date_local)) as time,
+    FORMAT_TIMESTAMP('%m-%d-%Y', TIMESTAMP(start_date_local)) as date,
+    FORMAT_TIMESTAMP('%H:%M:%S %p', TIMESTAMP(start_date_local)) as time,
     name,
     (distance * 0.000621371) AS distance_miles,
     (moving_time / 60) AS moving_time_minutes,
@@ -36,5 +36,14 @@ SELECT
     max_heartrate,
     (elev_high * 3.28084) AS elev_high_feet,
     (elev_low * 3.28084) AS elev_low_feet,
+    CASE
+        WHEN EXTRACT(HOUR FROM TIMESTAMP(start_date_local)) BETWEEN 0 AND 3 THEN '12am-4am'
+        WHEN EXTRACT(HOUR FROM TIMESTAMP(start_date_local)) BETWEEN 4 AND 7 THEN '4am-8am'
+        WHEN EXTRACT(HOUR FROM TIMESTAMP(start_date_local)) BETWEEN 8 AND 11 THEN '8am-12pm'
+        WHEN EXTRACT(HOUR FROM TIMESTAMP(start_date_local)) BETWEEN 12 AND 15 THEN '12pm-4pm'
+        WHEN EXTRACT(HOUR FROM TIMESTAMP(start_date_local)) BETWEEN 16 AND 19 THEN '4pm-8pm'
+        WHEN EXTRACT(HOUR FROM TIMESTAMP(start_date_local)) BETWEEN 20 AND 23 THEN '8pm-12am'
+        ELSE 'Other'
+    END AS time_bin
 FROM src_activities
 ORDER BY start_date_local DESC
