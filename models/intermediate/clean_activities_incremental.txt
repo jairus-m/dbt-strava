@@ -1,4 +1,11 @@
-{{ config(materialized = 'table') }}
+{{
+    config(
+        materialized='incremental',
+        unique_key='id',
+        on_schema_change='fail'
+    )
+}}
+
 
 WITH src_activities AS (
   SELECT * 
@@ -46,4 +53,12 @@ SELECT
         ELSE 'Other'
     END AS time_bin
 FROM src_activities
+-- tell dbt how to increment via jinja if statement
+-- if this is an incremental load, then append the below sql condition
+-- sql condition: only want records where date > max(date) of 'this' table
+-- 'this' refers to the clean_activities model which is this sql file we are working on!
+{% if is_incremental() %}
+  WHERE TIMESTAMP(start_date_local) > (select max(TIMESTAMP(start_date_local)) from {{ this }})
+{% endif %}
+
 ORDER BY start_date_local DESC
