@@ -1,6 +1,6 @@
 ### dbt project for [Strava ELT pipeline](https://github.com/jairus-m/StravaETLPipeline)
 
-This dbt projeect transforms raw activity data in BigQuery into useful data models for downstream analytics. 
+This dbt project transforms raw activity data in BigQuery into useful data models for downstream analytics. 
 
 The goal is to be able to use this project to learn about:
 - building data models
