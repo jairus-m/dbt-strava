@@ -13,7 +13,7 @@ The goal is to be able to use this project to learn about:
 - working in a dbt project folder
 - debugging in the CLI, creating documentation
 
-...and overall, maximing the features of dbt for sustainable/maintainable/scalable data transformations.
+...and overall, maximizing the features of dbt for sustainable/maintainable/scalable data transformations.
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
