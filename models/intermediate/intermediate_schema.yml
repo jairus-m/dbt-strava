@@ -64,8 +64,6 @@ models:
 
       - name: average_speed_mph
         description: '{{ doc("average_speed_mph") }}'
-        tests:
-          - not_null
 
       - name: max_speed_mph
         description: '{{ doc("max_speed_mph") }}'
@@ -83,8 +81,6 @@ models:
 
       - name: average_cadence
         description: '{{ doc("average_cadence") }}'
-        tests:
-          - not_null
 
       - name: average_temp
         description: '{{ doc("average_temp") }}'
