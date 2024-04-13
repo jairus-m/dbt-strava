@@ -41,6 +41,6 @@ models:
     src:
       +materialized: ephemeral
     intermediate:
-      +materialized: view
-    fct:
+      +materialized: table
+    marts:
       +materialized: table
