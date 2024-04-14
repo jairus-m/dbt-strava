@@ -2,7 +2,6 @@ with activities as (
     select
         date,
         time,
-        name,
         distance_miles,
         moving_time_minutes,
         elapsed_time_minutes,
@@ -52,7 +51,6 @@ select
     a.id as id_pk,
     d.date_id,
     a.time,
-    a.name,
     s.sport_type_pk as sport_type_fk,
     p.visibility_pk as visibility_fk,
     a.distance_miles,
