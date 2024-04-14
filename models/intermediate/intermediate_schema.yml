@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: clean_activities
+  - name: obt_clean_activities
     description: Clean Strava activities
     columns:
       - name: id

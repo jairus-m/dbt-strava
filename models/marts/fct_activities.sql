@@ -49,12 +49,12 @@ has_heartrate as (
 )
 
 select 
-    a.id,
+    a.id as id_pk,
     d.date_id,
     a.time,
     a.name,
-    s.sport_type_pk,
-    p.visibility_pk,
+    s.sport_type_pk as sport_type_fk,
+    p.visibility_pk as visibility_fk,
     a.distance_miles,
     a.moving_time_minutes,
     a.elapsed_time_minutes,
@@ -76,7 +76,7 @@ select
     a.max_heartrate,
     a.elev_high_feet,
     a.elev_low_feet,
-    h.has_heartrate_pk,
+    h.has_heartrate_pk as has_heartrate_fk,
 from activities as a
 left join dates as d
     on d.date = a.date and d.time = a.time
