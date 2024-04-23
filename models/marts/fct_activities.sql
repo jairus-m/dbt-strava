@@ -29,6 +29,7 @@ with activities as (
         elev_high_feet,
         elev_low_feet
     from {{ ref('obt_clean_activities') }}
+
 ),
 
 dates as (
@@ -84,3 +85,4 @@ left join privacy as p
     on a.private = p.private
 left join has_heartrate as h
     on a.has_heartrate = h.has_heartrate
+where visibility_pk = 1
