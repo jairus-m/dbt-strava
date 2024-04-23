@@ -3,8 +3,11 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'strava_activities'
-version: '1.0.0'
+require-dbt-version: '>=1.6.11'
 config-version: 2
+
+dbt-cloud:
+  project-id: 333419
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
