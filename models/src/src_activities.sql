@@ -4,3 +4,4 @@ with raw_activities AS (
 
 SELECT *
 FROM raw_activities
+limit 50
